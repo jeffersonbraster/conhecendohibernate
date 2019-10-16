@@ -43,5 +43,20 @@
 	    <artifactId>hibernate-entitymanager</artifactId>
 	    <version>5.2.7.Final</version>
 	</dependency>
+	
+	<dependency>
+		<groupId>com.sun.faces</groupId>
+		<artifactId>jsf-api</artifactId>
+		<version>2.2.0</version>
+		<scope>compile</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.sun.faces</groupId>
+		<artifactId>jsf-impl</artifactId>
+		<version>2.2.0</version>
+		<scope>compile</scope>
+	</dependency>
+	
   </dependencies>
 </project>
