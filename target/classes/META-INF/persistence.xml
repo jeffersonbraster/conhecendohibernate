@@ -14,7 +14,7 @@
 			<property name="hibernate.connection.username" value="postgres"/>
 			<property name="hibernate.connection.password" value="admin"/>
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
-			<property name="hibernate.format_sql" value="false"/>
+			<property name="hibernate.format_sql" value="update"/>
 			
 		</properties>
 	</persistence-unit>
