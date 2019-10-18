@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core" 
-xmlns:ui = "http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
 <h:head>
@@ -12,7 +12,7 @@ xmlns:ui = "http://java.sun.com/jsf/facelets">
 
 <h:body>
 	<h:form>
-	<f:facet name="teste">teste</f:facet>
+		<f:facet name="teste">teste</f:facet>
 		<h:panelGrid columns="2">
 			<h:outputLabel>Id: </h:outputLabel>
 			<h:inputText readonly="true"
@@ -42,11 +42,12 @@ xmlns:ui = "http://java.sun.com/jsf/facelets">
 			action="#{usuarioPessoaManagedBean.salvar}" />
 		<h:commandButton value="Novo"
 			action="#{usuarioPessoaManagedBean.novo}" />
-		
 
-		<h:dataTable value="#{usuarioPessoaManagedBean.list}" var="user" cellpadding="15" border="1">
+
+		<h:dataTable value="#{usuarioPessoaManagedBean.list}" var="user"
+			cellpadding="15" border="1">
 			<f:facet name="head">Lista de Usuários</f:facet>
-			
+
 			<h:column>
 				<f:facet name="header">Id: </f:facet>
 				<h:outputText value="#{user.id}" />
@@ -67,11 +68,19 @@ xmlns:ui = "http://java.sun.com/jsf/facelets">
 				<f:facet name="header">Login: </f:facet>
 				<h:outputText value="#{user.login}" />
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Editar: </f:facet>
 				<h:commandLink value="Editar">
-					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+					<f:setPropertyActionListener value="#{user}"
+						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Delete: </f:facet>
+				<h:commandLink value="Delete" action="#{usuarioPessoaManagedBean.remover}">
+					<f:setPropertyActionListener value="#{user}"
+						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
 				</h:commandLink>
 			</h:column>
 		</h:dataTable>
