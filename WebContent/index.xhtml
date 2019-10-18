@@ -29,7 +29,7 @@
 				value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
 
 			<h:outputLabel>Nome: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" />
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" required="true" requiredMessage="Insira um nome valido!" />
 
 			<h:outputLabel>Sobremome: </h:outputLabel>
 			<h:inputText
@@ -48,17 +48,19 @@
 			</h:selectOneMenu>
 
 			<h:outputLabel>Login: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}"  />
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" required="true" requiredMessage="Insira um login valido!" />
 
 			<h:outputLabel>Senha: </h:outputLabel>
 			<h:inputSecret
-				value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" />
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" required="true" requiredMessage="Insira uma senha valido!" />
 		</h:panelGrid>
 		<br/>
 		<h:commandButton value="Salvar"
-			action="#{usuarioPessoaManagedBean.salvar}" />
+			action="#{usuarioPessoaManagedBean.salvar}" id="botaoNovo" />
 		<h:commandButton value="Novo"
-			action="#{usuarioPessoaManagedBean.novo}" />
+			action="#{usuarioPessoaManagedBean.novo}" immediate="true" >
+			<f:ajax execute="botaoNovo" render="@form" />
+		</h:commandButton>
 		<br/>
 		<br/>
 
@@ -93,14 +95,17 @@
 
 			<h:column>
 				<f:facet name="header">Editar: </f:facet>
-				<h:commandLink value="Editar">
+				<h:commandLink immediate="true" id="botaoEditar">
+				<h:graphicImage url="resources/img/edit.png" width="25px" height="25px" />
 					<f:setPropertyActionListener value="#{user}"
 						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+					<f:ajax execute="botaoEditar" render="@form" />
 				</h:commandLink>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Delete: </f:facet>
-				<h:commandLink value="Delete" action="#{usuarioPessoaManagedBean.remover}">
+				<h:commandLink action="#{usuarioPessoaManagedBean.remover}" immediate="true">
+					<h:graphicImage url="resources/img/delete.png" width="25px" height="25px" />
 					<f:setPropertyActionListener value="#{user}"
 						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
 				</h:commandLink>
