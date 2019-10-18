@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:ui = "http://java.sun.com/jsf/facelets">
 
 
 <h:head>
@@ -10,6 +12,7 @@
 
 <h:body>
 	<h:form>
+	<f:facet name="teste">teste</f:facet>
 		<h:panelGrid columns="2">
 			<h:outputLabel>Id: </h:outputLabel>
 			<h:inputText readonly="true"
@@ -17,46 +20,61 @@
 
 			<h:outputLabel>Nome: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" />
-			
+
 			<h:outputLabel>Sobremome: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.sobrenome}" />
-			
+			<h:inputText
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.sobrenome}" />
+
 			<h:outputLabel>E-mail: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.email}" />
-			
+
 			<h:outputLabel>Idade: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
-			
+
 			<h:outputLabel>Login: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" />
-			
+
 			<h:outputLabel>Senha: </h:outputLabel>
-			<h:inputSecret value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" />
+			<h:inputSecret
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" />
 		</h:panelGrid>
-			<h:commandButton value="Salvar" action="#{usuarioPessoaManagedBean.salvar}" />
-			<h:commandButton value="Novo" action="#{usuarioPessoaManagedBean.novo}" />
+		<h:commandButton value="Salvar"
+			action="#{usuarioPessoaManagedBean.salvar}" />
+		<h:commandButton value="Novo"
+			action="#{usuarioPessoaManagedBean.novo}" />
+		
+
+		<h:dataTable value="#{usuarioPessoaManagedBean.list}" var="user" cellpadding="15" border="1">
+			<f:facet name="head">Lista de Usuários</f:facet>
 			
-		<h:dataTable value="#{usuarioPessoaManagedBean.list}" var="user">
 			<h:column>
+				<f:facet name="header">Id: </f:facet>
 				<h:outputText value="#{user.id}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">Nome: </f:facet>
 				<h:outputText value="#{user.nome}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">Sobrenome: </f:facet>
 				<h:outputText value="#{user.sobrenome}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">E-mail: </f:facet>
 				<h:outputText value="#{user.email}" />
 			</h:column>
 			<h:column>
+				<f:facet name="header">Login: </f:facet>
 				<h:outputText value="#{user.login}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Editar: </f:facet>
+				<h:commandLink value="Editar">
+					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+				</h:commandLink>
 			</h:column>
 		</h:dataTable>
 	</h:form>
-	
-	
-
 </h:body>
-
 </html>
