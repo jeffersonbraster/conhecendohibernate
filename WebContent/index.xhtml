@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:p="http://primefaces.org/ui">
 
 
 <h:head>
@@ -12,6 +12,14 @@
 
 <h:body>
 	<h:form>
+		<p:breadCrumb>
+			<p:menuitem />
+			<p:menuitem value="Página JSF" action="index.jsf" />
+			<p:menuitem value="Página PrimeFaces" action="primefaces.jsf" />
+		</p:breadCrumb>
+	</h:form>
+	<h:form>
+	<h:messages showDetail="true" showSummary="false" />
 		<f:facet name="teste">teste</f:facet>
 		<h:panelGrid columns="2">
 			<h:outputLabel>Id: </h:outputLabel>
@@ -19,7 +27,7 @@
 				value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
 
 			<h:outputLabel>Nome: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" />
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" required="true" requiredMessage="Informe um nome valido." />
 
 			<h:outputLabel>Sobremome: </h:outputLabel>
 			<h:inputText
@@ -32,7 +40,7 @@
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
 
 			<h:outputLabel>Login: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" />
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}"  />
 
 			<h:outputLabel>Senha: </h:outputLabel>
 			<h:inputSecret
