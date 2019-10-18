@@ -27,6 +27,7 @@ public class UsuarioPessoa {
 	private String login;
 	private String senha;
 	private int idade;
+	private String sexo;
 	
 	@OneToMany(mappedBy = "usuarioPessoa", fetch = FetchType.EAGER)
 	private List<TelefoneUser> telefoneUser;
@@ -83,6 +84,15 @@ public class UsuarioPessoa {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	
+	
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 	@Override
 	public String toString() {

@@ -18,6 +18,8 @@
 			<p:menuitem value="Página PrimeFaces" action="primefaces.jsf" />
 		</p:breadCrumb>
 	</h:form>
+	<br/>
+	<br/>
 	<h:form>
 	<h:messages showDetail="true" showSummary="false" />
 		<f:facet name="teste">teste</f:facet>
@@ -27,7 +29,7 @@
 				value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
 
 			<h:outputLabel>Nome: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" required="true" requiredMessage="Informe um nome valido." />
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" />
 
 			<h:outputLabel>Sobremome: </h:outputLabel>
 			<h:inputText
@@ -38,6 +40,12 @@
 
 			<h:outputLabel>Idade: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
+			
+			<h:outputLabel>Sexo:</h:outputLabel>
+			<h:selectOneMenu value="#{usuarioPessoaManagedBean.usuarioPessoa.sexo}">
+				<f:selectItem itemValue="MASCULINO" />
+				<f:selectItem itemValue="FEMININO" />
+			</h:selectOneMenu>
 
 			<h:outputLabel>Login: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}"  />
@@ -46,11 +54,13 @@
 			<h:inputSecret
 				value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" />
 		</h:panelGrid>
+		<br/>
 		<h:commandButton value="Salvar"
 			action="#{usuarioPessoaManagedBean.salvar}" />
 		<h:commandButton value="Novo"
 			action="#{usuarioPessoaManagedBean.novo}" />
-
+		<br/>
+		<br/>
 
 		<h:dataTable value="#{usuarioPessoaManagedBean.list}" var="user"
 			cellpadding="15" border="1">
@@ -67,6 +77,10 @@
 			<h:column>
 				<f:facet name="header">Sobrenome: </f:facet>
 				<h:outputText value="#{user.sobrenome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Sexo: </f:facet>
+				<h:outputText value="#{user.sexo}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">E-mail: </f:facet>
