@@ -18,10 +18,10 @@
 			<p:menuitem value="Página PrimeFaces" action="primefaces.jsf" />
 		</p:breadCrumb>
 	</h:form>
-	<br/>
-	<br/>
+	<br />
+	<br />
 	<h:form id="formulario">
-	<h:messages showDetail="true" showSummary="false" id="mensagem" />
+		<h:messages showDetail="true" showSummary="false" id="mensagem" />
 		<f:facet name="teste">teste</f:facet>
 		<h:panelGrid columns="2">
 			<h:outputLabel>Id: </h:outputLabel>
@@ -29,7 +29,8 @@
 				value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
 
 			<h:outputLabel>Nome: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" required="true" requiredMessage="Insira um nome valido!" />
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}"
+				required="true" requiredMessage="Insira um nome valido!" />
 
 			<h:outputLabel>Sobremome: </h:outputLabel>
 			<h:inputText
@@ -40,35 +41,38 @@
 
 			<h:outputLabel>Idade: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
-			
+
 			<h:outputLabel>Sexo:</h:outputLabel>
-			<h:selectOneMenu value="#{usuarioPessoaManagedBean.usuarioPessoa.sexo}">
+			<h:selectOneMenu
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.sexo}">
 				<f:selectItem itemValue="MASCULINO" />
 				<f:selectItem itemValue="FEMININO" />
 			</h:selectOneMenu>
 
 			<h:outputLabel>Login: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" required="true" requiredMessage="Insira um login valido!" />
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}"
+				required="true" requiredMessage="Insira um login valido!" />
 
 			<h:outputLabel>Senha: </h:outputLabel>
 			<h:inputSecret
-				value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" required="true" requiredMessage="Insira uma senha valido!" />
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}"
+				required="true" requiredMessage="Insira uma senha valido!" />
 		</h:panelGrid>
-		<br/>
+		<br />
 		<h:commandButton value="Salvar"
 			action="#{usuarioPessoaManagedBean.salvar}" id="botaoNovo" />
 		<h:commandButton value="Novo"
-			action="#{usuarioPessoaManagedBean.novo}" immediate="true" >
+			action="#{usuarioPessoaManagedBean.novo}" immediate="true">
 			<f:ajax execute="botaoNovo" render="@form" />
 		</h:commandButton>
-		<br/>
-		<br/>
-		</h:form>
-		
-		<h:form id="formTable">
+		<br />
+		<br />
+	</h:form>
+
+	<h:form id="formTable">
 		<h:dataTable value="#{usuarioPessoaManagedBean.list}" var="user"
 			cellpadding="15" border="1">
-			<f:facet name="head">Lista de Usuários</f:facet>
+			<f:facet name="header">Lista de Usuários </f:facet>
 
 			<h:column>
 				<f:facet name="header">Id: </f:facet>
@@ -98,7 +102,8 @@
 			<h:column>
 				<f:facet name="header">Editar: </f:facet>
 				<h:commandLink immediate="true" id="botaoEditar">
-				<h:graphicImage url="resources/img/edit.png" width="25px" height="25px" />
+					<h:graphicImage url="resources/img/edit.png" width="25px"
+						height="25px" />
 					<f:setPropertyActionListener value="#{user}"
 						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
 					<f:ajax execute="botaoEditar" render="@form" />
@@ -106,11 +111,22 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Delete: </f:facet>
-				<h:commandLink action="#{usuarioPessoaManagedBean.remover}" immediate="true" id="botaoremover">
-					<h:graphicImage url="resources/img/delete.png" width="25px" height="25px" />
+				<h:commandLink action="#{usuarioPessoaManagedBean.remover}"
+					immediate="true" id="botaoremover">
+					<h:graphicImage url="resources/img/delete.png" width="25px"
+						height="25px" />
 					<f:setPropertyActionListener value="#{user}"
 						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
-						<f:ajax execute="botaoremover" render="@form :formulario:mensagem" />
+					<f:ajax execute="botaoremover" render="@form :formulario:mensagem" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefones: </f:facet>
+				<h:commandLink action="telefone.jsf"
+					immediate="true" id="botaofone">
+					<h:graphicImage url="resources/img/fone.png" width="25px"
+						height="25px" />
+					<f:param name="codigouser" value="#{user.id}" />
 				</h:commandLink>
 			</h:column>
 		</h:dataTable>
