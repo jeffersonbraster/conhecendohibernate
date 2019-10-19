@@ -22,8 +22,22 @@
 	<br />
 	<h:form id="formulario">
 		<h:messages showDetail="true" showSummary="false" id="mensagem" />
-		<h1>Telefones</h1>
-		<h:outputText value="#{telefoneManagedBean.user.nome}"></h:outputText>
+		
+		<h:panelGrid columns="2">
+			<h:outputLabel>Usuário: </h:outputLabel>
+			<h:outputText value="#{telefoneManagedBean.user.nome}" />
+			
+			<h:outputLabel>Número: </h:outputLabel>
+			<h:inputText value="#{telefoneManagedBean.telefone.numero}"></h:inputText>
+			
+			<h:outputLabel>Tipo: </h:outputLabel>
+			<h:inputText value="#{telefoneManagedBean.telefone.tipo}"></h:inputText>			
+			
+		</h:panelGrid>
+			<br/><br/>
+			
+			<h:commandButton value="salvar" action="#{telefoneManagedBean.salvar}"></h:commandButton>
+		
 	</h:form>
 
 
