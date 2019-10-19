@@ -20,8 +20,8 @@
 	</h:form>
 	<br/>
 	<br/>
-	<h:form>
-	<h:messages showDetail="true" showSummary="false" />
+	<h:form id="formulario">
+	<h:messages showDetail="true" showSummary="false" id="mensagem" />
 		<f:facet name="teste">teste</f:facet>
 		<h:panelGrid columns="2">
 			<h:outputLabel>Id: </h:outputLabel>
@@ -63,7 +63,9 @@
 		</h:commandButton>
 		<br/>
 		<br/>
-
+		</h:form>
+		
+		<h:form id="formTable">
 		<h:dataTable value="#{usuarioPessoaManagedBean.list}" var="user"
 			cellpadding="15" border="1">
 			<f:facet name="head">Lista de Usuários</f:facet>
@@ -104,10 +106,11 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Delete: </f:facet>
-				<h:commandLink action="#{usuarioPessoaManagedBean.remover}" immediate="true">
+				<h:commandLink action="#{usuarioPessoaManagedBean.remover}" immediate="true" id="botaoremover">
 					<h:graphicImage url="resources/img/delete.png" width="25px" height="25px" />
 					<f:setPropertyActionListener value="#{user}"
 						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+						<f:ajax execute="botaoremover" render="@form :formulario:mensagem" />
 				</h:commandLink>
 			</h:column>
 		</h:dataTable>
