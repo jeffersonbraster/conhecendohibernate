@@ -48,6 +48,26 @@
 				<f:selectItem itemValue="MASCULINO" />
 				<f:selectItem itemValue="FEMININO" />
 			</h:selectOneMenu>
+			
+			<h:outputLabel>Cep: </h:outputLabel>
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.cep}">
+				<f:ajax event="blur" execute="@this" render="logradouro complemento bairro localidade uf" listener="#{usuarioPessoaManagedBean.pesquisaCep}" />
+			</h:inputText>
+			
+			<h:outputLabel>Rua/Avenida: </h:outputLabel>
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.logradouro}" id="logradouro" />
+			
+			<h:outputLabel>Complemento: </h:outputLabel>
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.complemento}" id="complemento" />
+			
+			<h:outputLabel>Bairro: </h:outputLabel>
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.bairro}" id="bairro" />
+			
+			<h:outputLabel>Cidade: </h:outputLabel>
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.localidade}" id="localidade" />
+			
+			<h:outputLabel>Estado: </h:outputLabel>
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.uf}" id="uf" />
 
 			<h:outputLabel>Login: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}"
@@ -93,7 +113,7 @@
 			<h:column>
 				<f:facet name="header">E-mail: </f:facet>
 				<h:outputText value="#{user.email}" />
-			</h:column>
+			</h:column>			
 			<h:column>
 				<f:facet name="header">Login: </f:facet>
 				<h:outputText value="#{user.login}" />
