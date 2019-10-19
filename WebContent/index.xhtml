@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 
 <h:head>
@@ -50,7 +51,7 @@
 			</h:selectOneMenu>
 			
 			<h:outputLabel>Cep: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.cep}">
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.cep}" pt:placeholder="exp: 00000000000">
 				<f:ajax event="blur" execute="@this" render="logradouro complemento bairro localidade uf" listener="#{usuarioPessoaManagedBean.pesquisaCep}" />
 			</h:inputText>
 			
