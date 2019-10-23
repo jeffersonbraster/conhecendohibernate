@@ -42,10 +42,6 @@
 				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
 			</p:column>
 			<p:column>
-				<p:outputLabel>Sexo:</p:outputLabel>
-				
-			</p:column>
-			<p:column>
 				<p:outputLabel>Login:</p:outputLabel>
 				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" />
 			</p:column>
@@ -58,6 +54,30 @@
 		<br/>
 		<p:commandButton value="Salvar" ajax="false" action="#{usuarioPessoaManagedBean.salvar}" />
 		<p:commandButton value="novo" action="#{usuarioPessoaManagedBean.novo}" ajax="false"></p:commandButton>
+		
+		<br/>
+		<br/>
+		
+		<p:dataTable value="#{usuarioPessoaManagedBean.list}" var="user">
+			<p:column headerText="Id">
+				<h:outputText value="#{user.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{user.nome}" />
+			</p:column>
+			<p:column headerText="Sobrenome">
+				<h:outputText value="#{user.sobrenome}" />
+			</p:column>
+			<p:column headerText="Idade">
+				<h:outputText value="#{user.idade}" />
+			</p:column>
+			<p:column headerText="E-mail">
+				<h:outputText value="#{user.email}" />
+			</p:column>
+			<p:column headerText="Login">
+				<h:outputText value="#{user.login}" />
+			</p:column>
+		</p:dataTable>
 		
 	</h:form>
 
