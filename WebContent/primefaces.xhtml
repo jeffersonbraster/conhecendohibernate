@@ -20,35 +20,30 @@
 	</h:form>
 	
 	<h:form>
-		<p:panelGrid columns="1">
-			<p:column>
+	<p:messages autoUpdate="true" showDetail="true" />
+	<br/>
+	<br/>
+		<p:panelGrid columns="2">
 			<p:outputLabel>Id:</p:outputLabel>
 				<p:inputText readonly="true" value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
-			</p:column>
-			<p:column>
+				
 				<p:outputLabel>Nome:</p:outputLabel>
-				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" />
-			</p:column>
-			<p:column>
+				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" required="true" requiredMessage="Informe um nome valido!" />
+				
 				<p:outputLabel>Sobrenome:</p:outputLabel>
 				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.sobrenome}" />
-			</p:column>
-			<p:column>
+				
 				<p:outputLabel>E-mail:</p:outputLabel>
 				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.email}" />
-			</p:column>
-			<p:column>
+				
 				<p:outputLabel>Idade:</p:outputLabel>
 				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
-			</p:column>
-			<p:column>
+				
 				<p:outputLabel>Login:</p:outputLabel>
-				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" />
-			</p:column>
-			<p:column>
+				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" required="true" requiredMessage="Informe um login valido!"  />
+				
 				<p:outputLabel>Senha:</p:outputLabel>
-				<p:password value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" />
-			</p:column>
+				<p:password value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" required="true" requiredMessage="Informe uma senha valido!"  />
 		</p:panelGrid>
 		
 		<br/>
