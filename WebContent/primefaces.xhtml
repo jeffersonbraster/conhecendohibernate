@@ -77,6 +77,11 @@
 			<p:column headerText="Login">
 				<h:outputText value="#{user.login}" />
 			</p:column>
+			<p:column headerText="Editar">
+				<h:commandLink value="Editar">
+					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+				</h:commandLink>
+			</p:column>
 		</p:dataTable>
 		
 	</h:form>
