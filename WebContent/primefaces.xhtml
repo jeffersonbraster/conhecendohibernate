@@ -82,6 +82,11 @@
 					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
 				</h:commandLink>
 			</p:column>
+			<p:column headerText="Remover">
+				<h:commandLink value="Remover" action="#{usuarioPessoaManagedBean.remover}">
+					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+				</h:commandLink>
+			</p:column>
 		</p:dataTable>
 		
 	</h:form>
