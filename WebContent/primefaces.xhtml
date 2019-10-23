@@ -18,6 +18,48 @@
 			<p:menuitem value="Página PrimeFaces" action="primefaces.jsf" />
 		</p:breadCrumb>
 	</h:form>
+	
+	<h:form>
+		<p:panelGrid columns="1">
+			<p:column>
+			<p:outputLabel>Id:</p:outputLabel>
+				<p:inputText readonly="true" value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
+			</p:column>
+			<p:column>
+				<p:outputLabel>Nome:</p:outputLabel>
+				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" />
+			</p:column>
+			<p:column>
+				<p:outputLabel>Sobrenome:</p:outputLabel>
+				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.sobrenome}" />
+			</p:column>
+			<p:column>
+				<p:outputLabel>E-mail:</p:outputLabel>
+				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.email}" />
+			</p:column>
+			<p:column>
+				<p:outputLabel>Idade:</p:outputLabel>
+				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
+			</p:column>
+			<p:column>
+				<p:outputLabel>Sexo:</p:outputLabel>
+				
+			</p:column>
+			<p:column>
+				<p:outputLabel>Login:</p:outputLabel>
+				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" />
+			</p:column>
+			<p:column>
+				<p:outputLabel>Senha:</p:outputLabel>
+				<p:password value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" />
+			</p:column>
+		</p:panelGrid>
+		
+		<br/>
+		<p:commandButton value="Salvar" ajax="false" action="#{usuarioPessoaManagedBean.salvar}" />
+		<p:commandButton value="novo" action="#{usuarioPessoaManagedBean.novo}" ajax="false"></p:commandButton>
+		
+	</h:form>
 
 
 
