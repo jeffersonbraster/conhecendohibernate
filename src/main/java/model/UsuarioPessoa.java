@@ -36,6 +36,8 @@ public class UsuarioPessoa {
 	private String localidade;
 	private String uf;
 	
+	private Double salario; 
+	
 	
 	@OneToMany(mappedBy = "usuarioPessoa", fetch = FetchType.EAGER)
 	private List<TelefoneUser> telefoneUser;
@@ -45,6 +47,12 @@ public class UsuarioPessoa {
 	
 	
 	
+	public Double getSalario() {
+		return salario;
+	}
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
 	public String getCep() {
 		return cep;
 	}

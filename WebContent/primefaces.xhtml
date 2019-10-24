@@ -18,49 +18,60 @@
 			<p:menuitem value="Página PrimeFaces" action="primefaces.jsf" />
 		</p:breadCrumb>
 	</h:form>
-	
+
 	<h:form id="cadastro">
-	<p:messages autoUpdate="true" showDetail="true" />
-	<br/>
-	<br/>
+		<p:messages autoUpdate="true" showDetail="true" />
+		<br />
+		<br />
 		<p:panelGrid columns="2">
 			<p:outputLabel>Id:</p:outputLabel>
-				<p:inputText readonly="true" value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
-				
-				<p:outputLabel>Nome:</p:outputLabel>
-				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}" required="true" requiredMessage="Informe um nome valido!" />
-				
-				<p:outputLabel>Sobrenome:</p:outputLabel>
-				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.sobrenome}" />
-				
-				<p:outputLabel>E-mail:</p:outputLabel>
-				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.email}" />
-				
-				<p:outputLabel>Idade:</p:outputLabel>
-				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
-				
-				<p:outputLabel>Sexo:</p:outputLabel>
-				<p:selectOneMenu
-					value="#{usuarioPessoaManagedBean.usuarioPessoa.sexo}">
-					<f:selectItem itemValue="MASCULINO" itemLabel="Masculino" />
-					<f:selectItem itemValue="FEMININO" itemLabel="Feminino" />
-				</p:selectOneMenu>
-				
-				<p:outputLabel>Login:</p:outputLabel>
-				<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}" required="true" requiredMessage="Informe um login valido!"  />
-				
-				<p:outputLabel>Senha:</p:outputLabel>
-				<p:password value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}" required="true" requiredMessage="Informe uma senha valido!"  />
+			<p:inputText readonly="true"
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
+
+			<p:outputLabel>Nome:</p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}"
+				required="true" requiredMessage="Informe um nome valido!" />
+
+			<p:outputLabel>Sobrenome:</p:outputLabel>
+			<p:inputText
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.sobrenome}" />
+
+			<p:outputLabel>E-mail:</p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.email}" />
+
+			<p:outputLabel>Idade:</p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
+
+			<p:outputLabel>Salario:</p:outputLabel>
+			<p:inputText
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.salario}" />
+
+			<p:outputLabel>Sexo:</p:outputLabel>
+			<p:selectOneMenu
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.sexo}">
+				<f:selectItem itemValue="MASCULINO" itemLabel="Masculino" />
+				<f:selectItem itemValue="FEMININO" itemLabel="Feminino" />
+			</p:selectOneMenu>
+
+			<p:outputLabel>Login:</p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}"
+				required="true" requiredMessage="Informe um login valido!" />
+
+			<p:outputLabel>Senha:</p:outputLabel>
+			<p:password value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}"
+				required="true" requiredMessage="Informe uma senha valido!" />
 		</p:panelGrid>
-		
-		<br/>
-		<p:commandButton value="Salvar" ajax="false" action="#{usuarioPessoaManagedBean.salvar}" />
-		<p:commandButton value="novo" action="#{usuarioPessoaManagedBean.novo}" immediate="true">
+
+		<br />
+		<p:commandButton value="Salvar" ajax="false"
+			action="#{usuarioPessoaManagedBean.salvar}" />
+		<p:commandButton value="novo"
+			action="#{usuarioPessoaManagedBean.novo}" immediate="true">
 			<f:ajax execute="@this" render="@form" />
 		</p:commandButton>
-		
-		<br/>
-		<br/>
+
+		<br />
+		<br />
 	</h:form>
 	<h:form id="formulario">
 		<p:dataTable value="#{usuarioPessoaManagedBean.list}" var="user">
@@ -86,32 +97,35 @@
 				<h:commandLink id="botaoeditar" immediate="true">
 					<h:graphicImage url="resources/img/edit.png" width="25px"
 						height="25px" />
-					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+					<f:setPropertyActionListener value="#{user}"
+						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
 					<f:ajax execute="botaoeditar" render=":cadastro" />
 				</h:commandLink>
 			</p:column>
 			<p:column headerText="Remover">
-				<h:commandLink action="#{usuarioPessoaManagedBean.remover}" id="botaoexcluir">
+				<h:commandLink action="#{usuarioPessoaManagedBean.remover}"
+					id="botaoexcluir">
 					<h:graphicImage url="resources/img/delete.png" width="25px"
 						height="25px" />
-					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
-					
+					<f:setPropertyActionListener value="#{user}"
+						target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+
 					<f:ajax execute="botaoexcluir" render="@form" />
 				</h:commandLink>
 			</p:column>
-			<p:column headerText="Telefones">				
-				<h:commandLink action="telefoneprimefaces.jsf"
-					immediate="true" id="botaofone">
+			<p:column headerText="Telefones">
+				<h:commandLink action="telefoneprimefaces.jsf" immediate="true"
+					id="botaofone">
 					<h:graphicImage url="resources/img/fone.png" width="25px"
 						height="25px" />
 					<f:param name="codigouser" value="#{user.id}" />
 				</h:commandLink>
 			</p:column>
 		</p:dataTable>
-		
-	
 	</h:form>
 	
+	<p:chart type="bar" model="#{usuarioPessoaManagedBean.barChartModel}" />
+
 
 </h:body>
 
