@@ -19,7 +19,7 @@
 		</p:breadCrumb>
 	</h:form>
 	
-	<h:form>
+	<h:form id="cadastro">
 	<p:messages autoUpdate="true" showDetail="true" />
 	<br/>
 	<br/>
@@ -55,11 +55,14 @@
 		
 		<br/>
 		<p:commandButton value="Salvar" ajax="false" action="#{usuarioPessoaManagedBean.salvar}" />
-		<p:commandButton value="novo" action="#{usuarioPessoaManagedBean.novo}" ajax="false"></p:commandButton>
+		<p:commandButton value="novo" action="#{usuarioPessoaManagedBean.novo}" immediate="true">
+			<f:ajax execute="@this" render="@form" />
+		</p:commandButton>
 		
 		<br/>
 		<br/>
-		
+	</h:form>
+	<h:form id="formulario">
 		<p:dataTable value="#{usuarioPessoaManagedBean.list}" var="user">
 			<p:column headerText="Id">
 				<h:outputText value="#{user.id}" />
@@ -80,20 +83,35 @@
 				<h:outputText value="#{user.login}" />
 			</p:column>
 			<p:column headerText="Editar">
-				<h:commandLink value="Editar">
+				<h:commandLink id="botaoeditar" immediate="true">
+					<h:graphicImage url="resources/img/edit.png" width="25px"
+						height="25px" />
 					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+					<f:ajax execute="botaoeditar" render=":cadastro" />
 				</h:commandLink>
 			</p:column>
 			<p:column headerText="Remover">
-				<h:commandLink value="Remover" action="#{usuarioPessoaManagedBean.remover}">
+				<h:commandLink action="#{usuarioPessoaManagedBean.remover}" id="botaoexcluir">
+					<h:graphicImage url="resources/img/delete.png" width="25px"
+						height="25px" />
 					<f:setPropertyActionListener value="#{user}" target="#{usuarioPessoaManagedBean.usuarioPessoa}" />
+					
+					<f:ajax execute="botaoexcluir" render="@form" />
+				</h:commandLink>
+			</p:column>
+			<p:column headerText="Telefones">				
+				<h:commandLink action="telefoneprimefaces.jsf"
+					immediate="true" id="botaofone">
+					<h:graphicImage url="resources/img/fone.png" width="25px"
+						height="25px" />
+					<f:param name="codigouser" value="#{user.id}" />
 				</h:commandLink>
 			</p:column>
 		</p:dataTable>
 		
+	
 	</h:form>
-
-
+	
 
 </h:body>
 
