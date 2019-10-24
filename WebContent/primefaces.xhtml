@@ -52,6 +52,26 @@
 				<f:selectItem itemValue="MASCULINO" itemLabel="Masculino" />
 				<f:selectItem itemValue="FEMININO" itemLabel="Feminino" />
 			</p:selectOneMenu>
+			
+			<p:outputLabel>Cep: </p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.cep}">
+				<f:ajax event="blur" execute="@this" render="logradouro complemento bairro localidade uf" listener="#{usuarioPessoaManagedBean.pesquisaCep}" />
+			</p:inputText>
+			
+			<p:outputLabel>Rua/Avenida: </p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.logradouro}" id="logradouro" />
+			
+			<p:outputLabel>Complemento: </p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.complemento}" id="complemento" />
+			
+			<p:outputLabel>Bairro: </p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.bairro}" id="bairro" />
+			
+			<p:outputLabel>Cidade: </p:outputLabel>
+			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.localidade}" id="localidade" />
+			
+			<p:outputLabel>Estado: </p:outputLabel>
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.uf}" id="uf" />
 
 			<p:outputLabel>Login:</p:outputLabel>
 			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.login}"
@@ -89,7 +109,7 @@
 			</p:column>
 			<p:column headerText="E-mail">
 				<h:outputText value="#{user.email}" />
-			</p:column>
+			</p:column>			
 			<p:column headerText="Login">
 				<h:outputText value="#{user.login}" />
 			</p:column>
@@ -122,12 +142,7 @@
 				</h:commandLink>
 			</p:column>
 		</p:dataTable>
-	</h:form>
-	
+	</h:form>	
 	<p:chart type="bar" model="#{usuarioPessoaManagedBean.barChartModel}" />
-
-
 </h:body>
-
-
 </html>
