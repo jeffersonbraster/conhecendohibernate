@@ -11,7 +11,6 @@
 </h:head>
 
 <h:body>
-<h1>fone primefaces</h1>
 	<h:form>
 		<p:breadCrumb>
 			<p:menuitem />
@@ -22,45 +21,45 @@
 	<br />
 	<br />
 	<h:form id="formulario">
-		<h:messages showDetail="true" showSummary="false" id="mensagem" />
+		<p:messages showDetail="true" showSummary="false" id="mensagem" />
 		
 		<h:panelGrid columns="2">
-			<h:outputLabel>Usuário: </h:outputLabel>
-			<h:outputText value="#{telefoneManagedBean.user.nome}" />
+			<p:outputLabel>Usuário: </p:outputLabel>
+			<p:outputLabel value="#{telefoneManagedBean.user.nome}" />
 			
-			<h:outputLabel>Número: </h:outputLabel>
-			<h:inputText value="#{telefoneManagedBean.telefone.numero}"></h:inputText>
+			<p:outputLabel>Número: </p:outputLabel>
+			<p:inputText value="#{telefoneManagedBean.telefone.numero}" required="true" requiredMessage="Numero obrigatorio!"/>
 			
-			<h:outputLabel>Tipo: </h:outputLabel>
-			<h:inputText value="#{telefoneManagedBean.telefone.tipo}"></h:inputText>			
+			<p:outputLabel>Tipo: </p:outputLabel>
+			<p:inputText value="#{telefoneManagedBean.telefone.tipo}" required="true" requiredMessage="Tipo obrigatorio!" />			
 			
 		</h:panelGrid>
-			<br/><br/>
-			
-			<h:commandButton value="salvar" action="#{telefoneManagedBean.salvar}"></h:commandButton>
+			<br/>
+			<br/>			
+			<p:commandButton value="salvar" action="#{telefoneManagedBean.salvar}" ajax="false"></p:commandButton>
 		
 	</h:form>
 	
 	<h:form id="formTelefones">
-		<h:dataTable value="#{telefoneManagedBean.user.telefoneUser}" var="fone" cellpadding="15" border="1">
-			<f:facet name="header">Lista de Telefones</f:facet>
+		<p:dataTable value="#{telefoneManagedBean.user.telefoneUser}" var="fone" id="tabelfone">
 			
-			<h:column style="width: 150px;">
+			
+			<p:column style="width: 150px;">
 				<f:facet name="header">Id: </f:facet>
 				<h:outputText value="#{fone.id}" />
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Número: </f:facet>
 				<h:outputText value="#{fone.numero}" />
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Tipo: </f:facet>
 				<h:outputText value="#{fone.tipo}" />
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Delete: </f:facet>
 				<h:commandLink action="#{telefoneManagedBean.removeTelefone}"
 					immediate="true" id="botaoremover">
@@ -70,9 +69,9 @@
 						target="#{telefoneManagedBean.telefone}" />
 					<f:ajax execute="botaoremover" render="@form :formulario:mensagem" />
 				</h:commandLink>
-			</h:column>
+			</p:column>
 		
-		</h:dataTable>
+		</p:dataTable>
 	</h:form>
 
 </h:body>
