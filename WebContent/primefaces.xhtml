@@ -54,7 +54,8 @@
 			</p:selectOneMenu>
 			
 			<p:outputLabel>Cep: </p:outputLabel>
-			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.cep}">
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.cep}" id="cep">
+				<p:watermark value="00000000000" for="cep" />
 				<f:ajax event="blur" execute="@this" render="logradouro complemento bairro localidade uf" listener="#{usuarioPessoaManagedBean.pesquisaCep}" />
 			</p:inputText>
 			
