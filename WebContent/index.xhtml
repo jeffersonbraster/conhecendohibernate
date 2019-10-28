@@ -37,8 +37,6 @@
 			<h:inputText
 				value="#{usuarioPessoaManagedBean.usuarioPessoa.sobrenome}" />
 
-			<h:outputLabel>E-mail: </h:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.email}" />
 
 			<h:outputLabel>Idade: </h:outputLabel>
 			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.idade}" />
@@ -110,11 +108,7 @@
 			<h:column>
 				<f:facet name="header">Sexo: </f:facet>
 				<h:outputText value="#{user.sexo}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">E-mail: </f:facet>
-				<h:outputText value="#{user.email}" />
-			</h:column>			
+			</h:column>		
 			<h:column>
 				<f:facet name="header">Login: </f:facet>
 				<h:outputText value="#{user.login}" />
