@@ -20,7 +20,7 @@
 	</h:form>
 
 	<h:form id="cadastro">
-		<p:messages autoUpdate="true" showDetail="true" />
+		<p:growl autoUpdate="true" showDetail="true" />
 		<br />
 		<br />
 		<p:panelGrid columns="2">
@@ -145,8 +145,12 @@
 			</p:column>
 		</p:dataTable>
 		
-		<p:dialog header="E-mails" id="dialogEmail" widgetVar="dialogEmail" position="center" modal="true" width="490px">
-		
+		<p:dialog header="E-mails" id="dialogEmail" widgetVar="dialogEmail" position="center" modal="true" width="490px" resizable="false">
+			<p:panelGrid columns="3">
+				<h:outputLabel value="E-mail" />
+				<p:inputText value="#{usuarioPessoaManagedBean.emailUser.email}" id="emailuseradd"/>
+				<p:commandButton value="Gravar" actionListener="#{usuarioPessoaManagedBean.addEmail}" update="emailuseradd"></p:commandButton>
+			</p:panelGrid>
 		</p:dialog>
 	</h:form>	
 	<p:chart type="bar" model="#{usuarioPessoaManagedBean.barChartModel}" />
