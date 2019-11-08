@@ -43,6 +43,7 @@ public class UsuarioPessoaManagedBean {
 	
 	@PostConstruct
 	public void init() {
+		barChartModel = new BarChartModel();
 		list = daoGeneric.listar(UsuarioPessoa.class);
 		
 		ChartSeries userSalario = new ChartSeries(); /*Grupo de funcionários*/
@@ -68,6 +69,7 @@ public class UsuarioPessoaManagedBean {
 	public String salvar() {
 		daoGeneric.salvar(usuarioPessoa);
 		list.add(usuarioPessoa);
+		init();
 		FacesContext.getCurrentInstance()
 .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informação ", "Salvo com sucesso!"));
 		return "";
@@ -89,6 +91,7 @@ public class UsuarioPessoaManagedBean {
 			daoGeneric.removerUsuario(usuarioPessoa);
 			list.remove(usuarioPessoa);
 			usuarioPessoa = new UsuarioPessoa();
+			init();
 			FacesContext.getCurrentInstance()
 			.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informação ", "Removido com sucesso!"));
 			
