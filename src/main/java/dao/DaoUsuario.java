@@ -4,13 +4,19 @@ import model.UsuarioPessoa;
 
 public class DaoUsuario<E> extends DaoGeneric<UsuarioPessoa> {
 	
-	public void removerUsuario(UsuarioPessoa pessoa) throws Exception {
+	public void removerUsuario(UsuarioPessoa pessoa) throws Exception{
 		getEntityManager().getTransaction().begin();
-		String sqlDeleteFone = "delete from telefoneuser where usuarioPessoa_id = " + pessoa.getId();
-		getEntityManager().createNativeQuery(sqlDeleteFone).executeUpdate();
+		/*	String sqlDelFone = "delete from telefoneuser where usuariopessoa_id = " + pessoa.getId();
+		getEntityManager().createNativeQuery(sqlDelFone).executeUpdate();
+		sqlDelFone = "delete from emailuser where usuariopessoa_id = " + pessoa.getId();
+		getEntityManager().createNativeQuery(sqlDelFone).executeUpdate();*/
+
+		getEntityManager().remove(pessoa);
+		
 		getEntityManager().getTransaction().commit();
 		
-		super.deletarPorId(pessoa);
+		//super.deletarPorId(pessoa);
+		
 	}
 	
 }
