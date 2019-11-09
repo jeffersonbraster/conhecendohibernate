@@ -26,7 +26,7 @@
 		<h:panelGrid columns="4">
 			<p:outputLabel>Id:</p:outputLabel>
 			<p:inputText readonly="true"
-				value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />
+				value="#{usuarioPessoaManagedBean.usuarioPessoa.id}" />			
 
 			<p:outputLabel>Nome:</p:outputLabel>
 			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.nome}"
@@ -66,7 +66,7 @@
 			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.bairro}" id="bairro" />
 			
 			<p:outputLabel>Cidade: </p:outputLabel>
-			<h:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.localidade}" id="localidade" />
+			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.localidade}" id="localidade" />
 			
 			<p:outputLabel>Estado: </p:outputLabel>
 			<p:inputText value="#{usuarioPessoaManagedBean.usuarioPessoa.uf}" id="uf" />
@@ -78,6 +78,12 @@
 			<p:outputLabel>Senha:</p:outputLabel>
 			<p:password value="#{usuarioPessoaManagedBean.usuarioPessoa.senha}"
 				required="true" requiredMessage="Informe uma senha valido!" />
+				
+			<p:outputLabel>Foto:</p:outputLabel>
+			<p:fileUpload mode="advanced" label="Adicionar" auto="true" update="imagem" fileUploadListener="#{usuarioPessoaManagedBean.upload}" />
+			
+			<p:outputLabel>Imagem:</p:outputLabel>			
+			<h:graphicImage id="imagem" value="#{usuarioPessoaManagedBean.usuarioPessoa.imagem}" width="150" height="150"/>
 		</h:panelGrid>
 
 		<br />
