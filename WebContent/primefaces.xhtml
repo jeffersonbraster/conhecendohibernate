@@ -91,6 +91,18 @@
 		<br />
 		<br />
 	</h:form>
+	
+	<h:form>
+		<p:panel header="Consultar usuario">
+			<h:panelGrid columns="3">
+				<h:outputLabel value="Nome:"/>
+				<p:inputText value="#{usuarioPessoaManagedBean.campoPesquisa}" />
+				<p:commandButton value="Buscar" actionListener="#{usuarioPessoaManagedBean.pesquisar}" update="formulario graficosalario"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+	
+	
 	<h:form id="formulario">
 		<p:dataTable value="#{usuarioPessoaManagedBean.list}" var="user">
 			<p:column headerText="Id" style="width: 20px;">

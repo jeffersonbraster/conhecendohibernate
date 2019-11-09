@@ -28,10 +28,15 @@
 			<p:outputLabel value="#{telefoneManagedBean.user.nome}" />
 			
 			<p:outputLabel>Número: </p:outputLabel>
-			<p:inputText value="#{telefoneManagedBean.telefone.numero}" required="true" requiredMessage="Numero obrigatorio!"/>
+			<p:inputMask mask="(99) 9 9999-9999" value="#{telefoneManagedBean.telefone.numero}" required="true" requiredMessage="Numero obrigatorio!"/>
 			
 			<p:outputLabel>Tipo: </p:outputLabel>
-			<p:inputText value="#{telefoneManagedBean.telefone.tipo}" required="true" requiredMessage="Tipo obrigatorio!" />			
+			<p:selectOneMenu value="#{telefoneManagedBean.telefone.tipo}" required="true" requiredMessage="Tipo obrigatorio!">
+				<f:selectItem itemLabel="Celular" itemValue="celular" />
+				<f:selectItem itemLabel="Casa" itemValue="casa" />
+				<f:selectItem itemLabel="Trabalho" itemValue="trabalho" />
+				<f:selectItem itemLabel="Outros" itemValue="outros" />
+			</p:selectOneMenu>			
 			
 		</h:panelGrid>
 			<br/>
