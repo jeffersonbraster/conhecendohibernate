@@ -118,6 +118,15 @@
 				<h:outputText value="#{user.nome}" />
 			</p:column>
 			
+			<p:column headerText="Baixar" style="width: 70px;">
+				<center>
+				<h:commandLink immediate="true" actionListener="#{usuarioPessoaManagedBean.download}">
+					<f:param name="fileDownloadId" value="#{user.id}" />
+					<h:graphicImage url="resources/img/camera.png" width="25px"	height="25px" />
+				</h:commandLink>
+				</center>
+			</p:column>
+			
 			<p:column headerText="Editar" style="width: 70px;">
 				<center>
 				<h:commandLink id="botaoeditar" immediate="true">
